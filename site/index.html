@@ -1,0 +1,108 @@
+<html>
+  <meta charset="UTF-8">
+<head>
+  <script>
+
+    function processGitLog(arrayOfLogLines) {
+      // TODO: ICM 2020-01-26: Keep track of dates and warn if log is not in chronological order (implying --reverse was not used to create the log)
+
+      function isInfoLine(line) {
+        return line.startsWith('--');
+      }
+
+      const states = { skipping: 'skipping', info: 'info', diff: 'diff' };
+      var state = states.skipping;
+
+      const commits = [];
+      var commitLines = null;
+      arrayOfLogLines.forEach(function(line) {
+        console.log('line: ' + line);
+        console.log('state: ' + state);
+
+        if (isInfoLine(line)) {
+          state = states.info;
+
+          // finish any in-progress commit
+          if (commitLines !== null) {
+            commits.push(commitLines);
+          }
+
+          // start a new commit
+          commitLines = [ line ];
+        } else if (line === '') {
+          state = states.skipping;
+        } else {
+          state = states.diff;
+
+          // add a diff
+          commitLines.push(line);
+        }
+      });
+
+      console.log(commits);
+
+
+    }
+
+    const openFile = function(event) {
+      const input = event.target;
+
+      const reader = new FileReader();
+      reader.onload = function() {
+        const text = reader.result;
+
+        const node = document.getElementById('output');
+        node.innerText = text;
+        console.log(reader.result.substring(0, 200));
+        const file = input.files[0];
+        console.log('File name: ' + file.name + '\n'
+            + 'type: ' + file.type + '\n'
+            + 'size: ' + file.size + ' bytes\n'
+            + 'starts with: ' + text.substr(0, text.indexOf('\n'))
+        );
+
+        // `git log` seems to produce Linux line endings, even on Windows,
+        // so that makes things simpler to process
+        const lines = text.split('\n');
+        processGitLog(lines);
+      };
+
+      reader.readAsText(input.files[0]);
+    };
+  </script>
+</head>
+<body>
+  <p>Load a suitable git log file. The recommended command is based on this
+    suggestion from
+    <a href="https://github.com/adamtornhill/code-maat">code-maat's <samp>README.md</samp></a>:
+  </p>
+  <pre><code>
+git log --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' --no-renames --after=YYYY-MM-DD
+  </code></pre>
+
+  <p>In our case, we will play with whether or not to use
+    <samp>--no-renames</samp>, starting <em>with</em> it.
+    And we will redirect the output into a suitable text file.
+    <strong>And</strong>, we want the total history, at least while we
+    experiment.
+    Apart from anything else, this will guarantee that we will pick
+    up every single in the system.
+    So we don't use <samp>--after</samp>.
+  </p>
+  <pre><code>
+git log --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' --no-renames > code-maat--log.txt
+  </code></pre>
+
+  <p>We will also experiment with using the <samp>--reverse</samp> option,
+    because we're thinking we'll want to process the log in historical order?
+  </p>
+  <pre><code>
+git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' --no-renames > code-maat--log--reversed.txt
+  </code></pre>
+
+  <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+  <pre><code id='output'>
+...
+  </code></pre>
+</body>
+</html>
