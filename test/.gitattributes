@@ -1,0 +1,2 @@
+## `git log` outputs are always LF - used for examples 
+*.txt text eol=lf
