@@ -1,0 +1,392 @@
+--0e66cb0--2016-10-14--ayeseeem
+12	0	.gitignore
+
+--758ff35--2016-10-14--ayeseeem
+106	0	pom.xml
+55	0	src/main/java/org/ayeseeem/dpick/xml/NodeMatchers.java
+74	0	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+28	0	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+12	0	src/main/java/org/ayeseeem/dpick/xml/XmlNodeActions.java
+13	0	src/main/java/org/ayeseeem/dpick/xml/XmlNodeHandler.java
+13	0	src/main/java/org/ayeseeem/dpick/xml/XmlNodeMatcher.java
+101	0	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+195	0	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+9	0	src/main/java/org/ayeseeem/dpick/xml/package-info.java
+22	0	src/test/java/org/ayeseeem/dpick/xml/Example.java
+16	0	src/test/java/org/ayeseeem/dpick/xml/XpathHelperTest.java
+17	0	src/test/resources/logback-test.xml
+
+--01dc01e--2016-10-14--ayeseeem
+17	0	README.md
+
+--71431a8--2016-10-16--ayeseeem
+1	1	pom.xml
+
+--25aac4c--2016-10-16--ayeseeem
+0	19	pom.xml
+
+--1438d64--2016-10-14--ayeseeem
+2	0	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+6	0	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+0	22	src/test/java/org/ayeseeem/dpick/xml/Example.java
+163	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+3	2	src/test/java/org/ayeseeem/dpick/xml/XpathHelperTest.java
+
+--4198d64--2016-10-14--ayeseeem
+17	0	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+71	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--e68b3aa--2016-10-14--ayeseeem
+12	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--67356d5--2016-10-15--ayeseeem
+28	0	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+1	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+8	3	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--d73c366--2016-10-15--ayeseeem
+3	1	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+8	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--df7a0a7--2016-10-15--ayeseeem
+4	6	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+28	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--c17bf2a--2016-10-15--ayeseeem
+22	15	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--fa53975--2016-10-16--ayeseeem
+0	1	pom.xml
+
+--2b2ed05--2016-10-16--ayeseeem
+15	0	README.md
+
+--0fec3a2--2016-10-16--ayeseeem
+4	1	README.md
+0	7	pom.xml
+
+--a02f12e--2016-10-16--ayeseeem
+2	0	pom.xml
+
+--fc0d613--2016-10-21--ayeseeem
+8	0	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+3	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+27	3	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--ca20e73--2016-10-21--ayeseeem
+53	4	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--415da6b--2016-10-22--ayeseeem
+3	3	README.md
+
+--14a6e69--2016-10-22--ayeseeem
+7	0	README.md
+
+--54642ee--2016-10-22--ayeseeem
+2	0	README.md
+3	2	pom.xml
+14	0	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+3	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+12	4	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--708759b--2016-10-22--ayeseeem
+2	0	README.md
+5	2	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+4	24	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+20	24	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--d5d6ea3--2016-10-22--ayeseeem
+0	15	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+0	8	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--6b565ea--2016-10-22--ayeseeem
+7	321	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+238	0	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+114	0	src/test/java/org/ayeseeem/dpick/xml/XmlExampleFixture.java
+
+--b9dae83--2016-10-22--ayeseeem
+0	11	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+0	16	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+0	16	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--f7b639e--2016-10-22--ayeseeem
+51	0	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+7	0	src/main/java/org/ayeseeem/dpick/matchers/package-info.java
+0	8	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+2	5	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+50	0	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+15	3	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--365c06a--2016-10-22--ayeseeem
+0	12	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+3	2	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+21	51	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--4a626b9--2016-10-22--ayeseeem
+7	3	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+19	13	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+2	2	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+6	6	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--1a95d16--2016-10-23--ayeseeem
+0	2	README.md
+1	2	pom.xml
+2	4	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+
+--8e9ed15--2016-10-23--ayeseeem
+21	0	LICENSE-MIT.md
+
+--5cda15a--2016-10-23--ayeseeem
+201	0	LICENSE-Apache-2.md
+
+--f9b7b38--2016-10-23--ayeseeem
+674	0	LICENSE-GPL-3.md
+
+--6db266c--2016-10-23--ayeseeem
+339	0	LICENSE-GPL-2.md
+
+--fc6c696--2016-10-23--ayeseeem
+10	0	LICENSE.md
+
+--ab1b2fc--2016-10-23--ayeseeem
+1	1	LICENSE.md
+
+--f89aae9--2016-10-23--ayeseeem
+1	1	pom.xml
+33	0	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+0	15	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+42	0	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+3	5	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+5	0	src/test/java/org/ayeseeem/dpick/xml/XmlExampleFixture.java
+
+--06ee450--2016-10-23--ayeseeem
+0	1	README.md
+1	3	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+9	0	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--c6c54ec--2016-10-23--ayeseeem
+6	6	README.md
+
+--c4960b4--2016-10-23--ayeseeem
+14	7	src/test/java/org/ayeseeem/dpick/xml/XmlExampleFixture.java
+
+--178ac53--2016-10-23--ayeseeem
+2	0	pom.xml
+
+--aea969e--2016-10-23--ayeseeem
+3	3	pom.xml
+
+--0c48f29--2016-10-23--ayeseeem
+1	0	.travis.yml
+
+--f95461b--2016-10-23--ayeseeem
+12	0	pom.xml
+
+--dd80607--2016-10-23--ayeseeem
+2	0	.travis.yml
+
+--73ee56b--2016-10-23--ayeseeem
+0	12	pom.xml
+
+--becd442--2016-10-23--ayeseeem
+2	0	README.md
+
+--650ac91--2016-10-28--ayeseeem
+1	1	pom.xml
+64	0	src/main/java/org/ayeseeem/dpick/util/xml/DomDump.java
+87	0	src/test/java/org/ayeseeem/dpick/util/xml/DomDumpTest.java
+3	30	src/test/java/org/ayeseeem/dpick/xml/XmlExampleFixture.java
+
+--fea4554--2016-10-29--ayeseeem
+8	8	src/main/java/org/ayeseeem/dpick/util/xml/DomDump.java
+
+--f12767f--2016-10-29--ayeseeem
+1	1	pom.xml
+3	0	src/main/java/org/ayeseeem/dpick/util/xml/DomDump.java
+14	0	src/test/java/org/ayeseeem/dpick/util/xml/DomDumpTest.java
+
+--f89ca4a--2016-11-04--ayeseeem
+46	0	README.md
+1	1	pom.xml
+0	1	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+5	3	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+
+--2fd5533--2016-11-04--ayeseeem
+15	2	README.md
+1	1	pom.xml
+27	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+20	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+29	0	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--dc978b9--2016-11-05--ayeseeem
+25	7	README.md
+1	1	pom.xml
+21	0	src/main/java/org/ayeseeem/dpick/xml/Capturer.java
+19	0	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+11	0	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+49	0	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--d39eb01--2016-11-05--ayeseeem
+1	1	pom.xml
+15	0	src/main/java/org/ayeseeem/dpick/xml/NodeActions.java
+13	0	src/main/java/org/ayeseeem/dpick/xml/NodeHandler.java
+13	0	src/main/java/org/ayeseeem/dpick/xml/NodeMatcher.java
+2	2	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+6	5	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+0	12	src/main/java/org/ayeseeem/dpick/xml/XmlNodeActions.java
+0	13	src/main/java/org/ayeseeem/dpick/xml/XmlNodeHandler.java
+0	13	src/main/java/org/ayeseeem/dpick/xml/XmlNodeMatcher.java
+1	1	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+9	9	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+3	3	src/main/java/org/ayeseeem/dpick/xml/package-info.java
+
+--9b01847--2016-11-06--ayeseeem
+7	7	README.md
+1	1	pom.xml
+17	0	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+5	6	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+26	0	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--e6a639b--2018-03-09--ayeseeem
+2	1	README.md
+
+--4a33ab8--2018-05-06--ayeseeem
+3	0	LICENSE.md
+
+--0a0ef5b--2018-05-06--ayeseeem
+1	1	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+
+--8f86190--2018-05-06--ayeseeem
+44	0	pom.xml
+
+--32e0a08--2019-03-22--ayeseeem
+1	1	pom.xml
+
+--f4cc09a--2019-03-22--ayeseeem
+11	1	README.md
+
+--085f5ec--2019-03-23--ayeseeem
+1	0	infinitest.args
+
+--ecc5d02--2019-03-23--ayeseeem
+10	0	README.md
+1	1	pom.xml
+
+--16ae565--2019-03-23--ayeseeem
+1	1	README.md
+2	2	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+2	2	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--2931d03--2019-03-23--ayeseeem
+1	1	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+1	1	src/test/java/org/ayeseeem/dpick/util/xml/DomDumpTest.java
+1	1	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+1	1	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+1	1	src/test/java/org/ayeseeem/dpick/xml/XpathHelperTest.java
+
+--033995d--2019-03-23--ayeseeem
+3	2	src/test/java/org/ayeseeem/dpick/xml/XpathHelperTest.java
+
+--2d612f1--2019-03-23--ayeseeem
+6	0	pom.xml
+2	2	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+
+--658a7b7--2019-03-23--ayeseeem
+0	1	README.md
+8	8	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+3	3	src/main/java/org/ayeseeem/dpick/util/xml/DomDump.java
+1	1	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+3	3	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+
+--9ce674a--2019-03-23--ayeseeem
+7	6	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+1	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+
+--fec4be1--2019-03-23--ayeseeem
+5	13	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+
+--0d5d5b5--2019-03-23--ayeseeem
+14	4	src/main/java/org/ayeseeem/dpick/util/xml/DomDump.java
+
+--da557cd--2019-03-23--ayeseeem
+1	1	README.md
+1	1	src/main/java/org/ayeseeem/dpick/xml/NodeHandler.java
+0	82	src/test/java/org/ayeseeem/dpick/xml/Examples.java
+0	315	src/test/java/org/ayeseeem/dpick/xml/IntegrationTest.java
+0	99	src/test/java/org/ayeseeem/dpick/xml/XmlExampleFixture.java
+91	0	src/test/java/org/ayeseeem/dpick/xml/test/Examples.java
+325	0	src/test/java/org/ayeseeem/dpick/xml/test/IntegrationTest.java
+99	0	src/test/java/org/ayeseeem/dpick/xml/test/XmlExampleFixture.java
+
+--65007db--2019-03-23--ayeseeem
+3	5	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+
+--9504cd5--2019-03-29--ayeseeem
+10	11	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+
+--9de812b--2019-03-29--ayeseeem
+36	0	src/main/java/org/ayeseeem/dpick/util/dom/DomBuilder.java
+3	29	src/main/java/org/ayeseeem/dpick/xml/XpathHelper.java
+40	0	src/test/java/org/ayeseeem/dpick/util/dom/DomBuilderTest.java
+2	12	src/test/java/org/ayeseeem/dpick/util/xml/DomDumpTest.java
+1	14	src/test/java/org/ayeseeem/dpick/xml/XpathHelperTest.java
+2	12	src/test/java/org/ayeseeem/dpick/xml/test/XmlExampleFixture.java
+
+--fc71156--2019-03-29--ayeseeem
+56	0	src/main/java/org/ayeseeem/dpick/util/dom/ListOfNode.java
+5	3	src/main/java/org/ayeseeem/dpick/xml/NodeSelectionChecker.java
+4	6	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+285	0	src/test/java/org/ayeseeem/dpick/util/dom/ListOfNodeTest.java
+
+--5b811ee--2019-03-29--ayeseeem
+1	2	src/test/java/org/ayeseeem/dpick/xml/test/Examples.java
+
+--c9a24f2--2019-03-29--ayeseeem
+5	2	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+14	0	src/test/java/org/ayeseeem/dpick/xml/test/Examples.java
+
+--b78f366--2019-03-29--ayeseeem
+1	2	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+
+--9945fcc--2019-03-31--ayeseeem
+8	0	README.md
+
+--6022d5d--2019-03-31--ayeseeem
+1	1	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+2	2	src/main/java/org/ayeseeem/dpick/xml/XpathNodeMatchers.java
+
+--62fd49c--2019-04-06--ayeseeem
+10	0	README.md
+
+--e567672--2019-04-13--ayeseeem
+12	6	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+87	32	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+
+--94dd9c0--2019-04-14--ayeseeem
+10	9	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+31	0	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+
+--cba71ce--2018-05-07--ayeseeem
+9	0	src/main/java/org/ayeseeem/dpick/xml/XmlDocumentChecker.java
+32	0	src/test/java/org/ayeseeem/dpick/xml/test/IntegrationTest.java
+
+--491f31c--2016-10-16--ayeseeem
+4	1	pom.xml
+
+--2d3e37e--2016-10-25--ayeseeem
+0	2	README.md
+77	0	src/main/java/org/ayeseeem/dpick/util/xml/DomHelper.java
+159	0	src/main/java/org/ayeseeem/dpick/util/xml/XmlUnmarshaller.java
+114	0	src/test/java/org/ayeseeem/dpick/util/xml/DomHelperTest.java
+61	0	src/test/java/org/ayeseeem/dpick/util/xml/XmlUnmarshallerTest.java
+
+--b4b4b25--2019-03-23--ayeseeem
+22	21	src/test/java/org/ayeseeem/dpick/util/xml/DomHelperTest.java
+7	7	src/test/java/org/ayeseeem/dpick/util/xml/XmlUnmarshallerTest.java
+
+--6fd277e--2019-04-14--ayeseeem
+1	0	README.md
+36	0	src/main/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchers.java
+1	1	src/main/java/org/ayeseeem/dpick/matchers/package-info.java
+48	0	src/test/java/org/ayeseeem/dpick/matchers/ConvertibleStringMatchersTest.java
+1	0	src/test/java/org/ayeseeem/dpick/xml/test/Examples.java
