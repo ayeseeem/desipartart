@@ -11,10 +11,17 @@
         return line.startsWith('--');
       }
 
+      function makeCommit(lines) {
+        const infoLine = lines[0];
+        const diffLines = lines.slice(1);
+
+        return { infoLine, diffLines };
+      }
+
       const states = { skipping: 'skipping', info: 'info', diff: 'diff' };
       var state = states.skipping;
 
-      const commits = [];
+      const rawCommits = [];
       var commitLines = null;
       arrayOfLogLines.forEach(function(line) {
         console.log('line: ' + line);
@@ -25,7 +32,7 @@
 
           // finish any in-progress commit
           if (commitLines !== null) {
-            commits.push(commitLines);
+            rawCommits.push(commitLines);
           }
 
           // start a new commit
@@ -40,9 +47,11 @@
         }
       });
 
+      console.log(rawCommits);
+
+      const commits = rawCommits.map(makeCommit);
+
       console.log(commits);
-
-
     }
 
     const openFile = function(event) {
