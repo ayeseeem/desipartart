@@ -27,3 +27,7 @@ TODOs
   Could either merge `src/main/` and `src/test` (merge one into the other),
   or perhaps just strip `src/main/` and `src/test` - less meaningful, but
   maybe easier?
+
+- [ ] Keep track of dates and warn if log is not in chronological order
+  (implying `--reverse` was not used to create the log).
+  - Or better yet, automatically detect/fix order

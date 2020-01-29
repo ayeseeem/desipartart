@@ -5,7 +5,6 @@
   <script>
 
     function processGitLog(arrayOfLogLines) {
-      // TODO: ICM 2020-01-26: Keep track of dates and warn if log is not in chronological order (implying --reverse was not used to create the log)
 
       function isInfoLine(line) {
         return line.startsWith('--');
