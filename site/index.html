@@ -10,6 +10,17 @@
         return line.startsWith('--');
       }
 
+      function makeDiff(diffLine) {
+        const diffRegex = /(.*)\t(.*)\t(.*)/;
+        const found = diffLine.match(diffRegex);
+        // TODO: ICM 2020-01-29: Assert found.length === 4
+        // TODO: ICM 2020-01-29: Convert adds/removes to numbers
+        const additions = found[1];
+        const subtractions = found[2];
+        const file = found[3];
+        return { additions, subtractions, file };
+      }
+
       function makeCommit(lines) {
         const infoLine = lines[0];
 
@@ -23,8 +34,10 @@
         const user = found[3];
 
         const diffLines = lines.slice(1);
+        // TODO: ICM 2020-01-29: Assert diffLines.length >= 1
+        const diffs = diffLines.map(makeDiff);
 
-        return { sha, dateStr, user, diffLines };
+        return { sha, dateStr, user, diffs };
       }
 
       const states = { skipping: 'skipping', info: 'info', diff: 'diff' };
