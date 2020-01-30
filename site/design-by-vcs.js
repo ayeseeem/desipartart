@@ -22,7 +22,6 @@ function processGitLog(arrayOfLogLines) {
     const infoRegex = /--(.*)--(.*)--(.*)/;
     const found = infoLine.match(infoRegex);
 
-    console.log(found.length);
     // TODO: ICM 2020-01-28: Assert found.length === 4
     const sha = found[1];
     const dateStr = found[2];
