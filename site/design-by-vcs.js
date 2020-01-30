@@ -1,4 +1,5 @@
 function processGitLog(arrayOfLogLines) {
+  'use strict';
 
   function isInfoLine(line) {
     return line.startsWith('--');
