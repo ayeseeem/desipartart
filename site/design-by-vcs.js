@@ -11,9 +11,9 @@ function processGitLog(arrayOfLogLines) {
     // TODO: ICM 2020-01-29: Assert found.length === 4
     // TODO: ICM 2020-01-30: Handle invalid args?
     const additions = parseInt(found[1], 10);
-    const subtractions = parseInt(found[2]);
+    const deletions = parseInt(found[2]);
     const file = found[3];
-    return { additions, subtractions, file };
+    return { additions, deletions, file };
   }
 
   function makeCommit(lines) {
