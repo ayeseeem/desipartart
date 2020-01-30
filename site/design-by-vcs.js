@@ -9,9 +9,9 @@ function processGitLog(arrayOfLogLines) {
     const diffRegex = /(.*)\t(.*)\t(.*)/;
     const found = diffLine.match(diffRegex);
     // TODO: ICM 2020-01-29: Assert found.length === 4
-    // TODO: ICM 2020-01-29: Convert adds/removes to numbers
-    const additions = found[1];
-    const subtractions = found[2];
+    // TODO: ICM 2020-01-30: Handle invalid args?
+    const additions = parseInt(found[1], 10);
+    const subtractions = parseInt(found[2]);
     const file = found[3];
     return { additions, subtractions, file };
   }
