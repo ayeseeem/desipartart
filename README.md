@@ -13,7 +13,7 @@ Look at [`index.html`](site\index.html) for more.
 TODOs
 -----
 
-- [ ] Treat files as unique entities based on full path
+- [x] Treat files as unique entities based on full path
 - [ ] Look at "packages" based on directories, but not nested
   (like Java packages)
 - [ ] Look at nesting, based on directories - split paths

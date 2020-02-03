@@ -1,6 +1,40 @@
 function processGitLog(arrayOfLogLines) {
   'use strict';
 
+  function processCommits(commits) {
+    const files = new Set();
+    commits.forEach(c => {
+      c.diffs.forEach(d => files.add(d.file));
+    });
+
+    console.log(files);
+
+    const network = { };
+    files.forEach(f => {
+      const cols = {};
+      files.forEach(ff => cols[ff] = 0);
+      network[f] = cols;
+    });
+
+    console.log(network);
+
+    commits.forEach(c => {
+      const filesInCommit = new Set();
+      c.diffs.forEach(d => {
+        filesInCommit.add(d.file);
+      });
+      c.diffs.forEach(d => {
+        filesInCommit.forEach(f => {
+          // update weight - just count number of times changed together
+          network[d.file][f] = network[d.file][f] + 1;
+          // update weight - based on what?
+//          network[d.file][f] = network[d.file][f] + d.additions + d.deletions;
+        });
+      });
+    });
+    console.log(network);
+  }
+
   function isInfoLine(line) {
     return line.startsWith('--');
   }
@@ -68,4 +102,6 @@ function processGitLog(arrayOfLogLines) {
   const commits = rawCommits.map(makeCommit);
 
   console.log(commits);
+
+  processCommits(commits);
 }
