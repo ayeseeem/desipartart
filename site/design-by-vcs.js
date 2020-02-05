@@ -33,6 +33,52 @@ function processGitLog(arrayOfLogLines) {
       });
     });
     console.log(network);
+
+    const nodesByFile = {};
+    let nodeId = 1;
+    files.forEach(f => {
+      nodesByFile[f] = { id: nodeId, name: f };
+      nodeId++;
+    });
+    console.log(nodesByFile);
+
+    const edges = [];
+
+    // TODO: ICM 2020-02-04: verify finds from/to or to/from
+    function edgeFor(fromFile, toFile) {
+      const fromNode = nodesByFile[fromFile];
+      const toNode = nodesByFile[toFile];
+//      const edge = edges.find(element => (element.from === fromNode.id) && (element.to === toNode.id));
+      const edge = edges.find(function (element) {
+        return ((element.from === fromNode.id) && (element.to === toNode.id)) || ((element.from === toNode.id) && (element.to === fromNode.id));
+      });
+      if (edge === undefined) {
+        const newEdge = { from: fromNode.id, to: toNode.id, weight: 0 };
+        edges.push(newEdge);
+        return newEdge;
+      } else {
+        return edge;
+      }
+    }
+
+    commits.forEach(c => {
+      const filesInCommit = new Set();
+      c.diffs.forEach(d => {
+        filesInCommit.add(d.file);
+      });
+      c.diffs.forEach(d => {
+        filesInCommit.forEach(f => {
+          // update weight - just count number of times changed together
+          const edge = edgeFor(d.file, f);
+          edge.weight = edge.weight + 1;
+        });
+      });
+    });
+
+    console.log('----------------------------------------------------------');
+    console.log(nodesByFile);
+    console.log(edges);
+    console.log('----------------------------------------------------------');
   }
 
   function isInfoLine(line) {
