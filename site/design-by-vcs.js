@@ -34,10 +34,10 @@ function processGitLog(arrayOfLogLines) {
     });
     console.log(network);
 
-    const nodesByFile = {};
+    const nodesByFile = new Map();
     let nodeId = 1;
     files.forEach(f => {
-      nodesByFile[f] = { id: nodeId, name: f };
+      nodesByFile.set(f, { id: nodeId, name: f });
       nodeId++;
     });
     console.log(nodesByFile);
@@ -46,8 +46,8 @@ function processGitLog(arrayOfLogLines) {
 
     // TODO: ICM 2020-02-04: verify finds from/to or to/from
     function edgeFor(fromFile, toFile) {
-      const fromNode = nodesByFile[fromFile];
-      const toNode = nodesByFile[toFile];
+      const fromNode = nodesByFile.get(fromFile);
+      const toNode = nodesByFile.get(toFile);
 //      const edge = edges.find(element => (element.from === fromNode.id) && (element.to === toNode.id));
       const edge = edges.find(function (element) {
         return ((element.from === fromNode.id) && (element.to === toNode.id)) || ((element.from === toNode.id) && (element.to === fromNode.id));
