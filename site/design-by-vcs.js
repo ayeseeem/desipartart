@@ -79,6 +79,8 @@ function processGitLog(arrayOfLogLines) {
     console.log(nodesByFile);
     console.log(edges);
     console.log('----------------------------------------------------------');
+
+    return { nodesByFile, edges };
   }
 
   function isInfoLine(line) {
@@ -149,5 +151,6 @@ function processGitLog(arrayOfLogLines) {
 
   console.log(commits);
 
-  processCommits(commits);
+  const hackedGraph = processCommits(commits);
+  return hackedGraph;
 }
