@@ -31,3 +31,11 @@ TODOs
 - [ ] Keep track of dates and warn if log is not in chronological order
   (implying `--reverse` was not used to create the log).
   - Or better yet, automatically detect/fix order
+
+
+### Implementation Details ###
+
+- [ ] Use an up-to-date version of [visjs](https://github.com/visjs) instead of
+  [vis.js ](https://visjs.org/)?
+- [ ] Clean up the vis.js graph, it's still based on the demo
+- [ ] Clean up the JavaScript for the demo, particularly use of `var`

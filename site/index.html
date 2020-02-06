@@ -2,9 +2,81 @@
   <meta charset="UTF-8">
   <title>Design Analysis by VCS</title>
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.css" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+    #mynetwork {
+      width: 700px;
+      height: 400px;
+      border: 1px solid lightgray;
+    }
+  </style>
   <script src="design-by-vcs.js"></script>
   <script>
     'use strict';
+
+    function visJsDemo() {
+      // create an array with nodes
+      var nodes = new vis.DataSet([
+        {id: 1, label: 'Node 1'},
+        {id: 2, label: 'Node 2'},
+        {id: 3, label: 'Node 3'},
+        {id: 4, label: 'Node 4'},
+        {id: 5, label: 'Node 5'}
+      ]);
+
+      // create an array with edges
+      var edges = new vis.DataSet([
+        {from: 1, to: 3, width: 1},
+        {from: 1, to: 2, width: 6},
+        {from: 2, to: 4, width: 1},
+        {from: 2, to: 5, width: 3},
+        {from: 2, to: 3, width: 1},
+      ]);
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {};
+      var network = new vis.Network(container, data, options);
+    }
+
+    function displayChanges(hackedGraph) {
+      console.log(hackedGraph);
+
+      // TODO: ICM 2020-02-05: Can we use a map transformation?
+      const rawNodes = [];
+      hackedGraph.nodesByFile.forEach(function (value, key) {
+        console.log(value);
+        rawNodes.push({ id: value.id, label: value.name });
+      });
+
+      console.log(rawNodes);
+      // create an array with nodes
+      var nodes = new vis.DataSet(rawNodes);
+
+      // Convert weight to width
+      const rawEdges = [];
+      hackedGraph.edges.forEach(function (e) {
+        rawEdges.push({ from: e.from, to: e.to, width: e.weight });
+      });
+      console.log(rawEdges);
+
+      // create an array with edges
+      var edges = new vis.DataSet(rawEdges);
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {};
+      var network = new vis.Network(container, data, options);
+    }
 
     const openFile = function(event) {
       const input = event.target;
@@ -26,7 +98,10 @@
         // `git log` seems to produce Linux line endings, even on Windows,
         // so that makes things simpler to process
         const lines = text.split('\n');
-        processGitLog(lines);
+        const hackedGraph = processGitLog(lines);
+
+        visJsDemo();
+        displayChanges(hackedGraph);
       };
 
       reader.readAsText(input.files[0]);
@@ -69,6 +144,8 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
   <input type='file' accept='text/plain' onchange='openFile(event)'><br>
 
   <p><strong>then check the console to see what's happened.</strong></p>
+
+  <div id="mynetwork"></div>
 
   <pre><code id='output'>
 ...
