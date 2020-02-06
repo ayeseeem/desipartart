@@ -18,6 +18,9 @@ TODOs
   (like Java packages)
 - [ ] Look at nesting, based on directories - split paths
 - [ ] Follow file renames (includes moving folder?)
+- [ ] (Optionally) include/exclude self-links
+- [ ] (Optionally) include/exclude unlinked files
+- [ ] Display shorter filenames? (what about duplicates?)
 - [ ] Combine trees based on paths - for example, treat these two files as
   being in the same package even though the paths differ:
 
