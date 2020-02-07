@@ -9,6 +9,8 @@ function processGitLog(arrayOfLogLines) {
 
     console.log(files);
 
+    // TODO: ICM 2020-02-06: Clear out the network stuff, there's a better graph
+  
     const network = { };
     files.forEach(f => {
       const cols = {};
@@ -37,7 +39,9 @@ function processGitLog(arrayOfLogLines) {
     const nodesByFile = new Map();
     let nodeId = 1;
     files.forEach(f => {
-      nodesByFile.set(f, { id: nodeId, name: f });
+      // TODO: ICM 2020-02-06: Add shortName() as a func?
+      const shortName = f.substring(f.lastIndexOf("/") + 1);
+      nodesByFile.set(f, { id: nodeId, name: shortName });
       nodeId++;
     });
     console.log(nodesByFile);

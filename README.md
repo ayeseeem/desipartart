@@ -20,7 +20,7 @@ TODOs
 - [ ] Follow file renames (includes moving folder?)
 - [ ] (Optionally) include/exclude self-links
 - [ ] (Optionally) include/exclude unlinked files
-- [ ] Display shorter filenames? (what about duplicates?)
+- [x] Display shorter filenames? (what about duplicates?)
 - [ ] Combine trees based on paths - for example, treat these two files as
   being in the same package even though the paths differ:
 
@@ -42,3 +42,5 @@ TODOs
   [vis.js ](https://visjs.org/)?
 - [ ] Clean up the vis.js graph, it's still based on the demo
 - [ ] Clean up the JavaScript for the demo, particularly use of `var`
+- [ ] Is there a "pending" animation we can add to graph?
+- [ ] Extract and encapsulate graph/network concept
