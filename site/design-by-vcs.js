@@ -98,10 +98,10 @@ function processGitLog(arrayOfLogLines) {
 
   const rawCommits = [];
   var commitLines = null;
-  arrayOfLogLines.forEach(function(line) {
     console.log('line: ' + line);
     console.log('state: ' + state);
 
+  arrayOfLogLines.forEach(function (line) {
     if (isInfoLine(line)) {
       state = states.info;
 
