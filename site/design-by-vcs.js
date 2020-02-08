@@ -9,33 +9,6 @@ function processGitLog(arrayOfLogLines) {
 
     console.log(files);
 
-    // TODO: ICM 2020-02-06: Clear out the network stuff, there's a better graph
-  
-    const network = { };
-    files.forEach(f => {
-      const cols = {};
-      files.forEach(ff => cols[ff] = 0);
-      network[f] = cols;
-    });
-
-    console.log(network);
-
-    commits.forEach(c => {
-      const filesInCommit = new Set();
-      c.diffs.forEach(d => {
-        filesInCommit.add(d.file);
-      });
-      c.diffs.forEach(d => {
-        filesInCommit.forEach(f => {
-          // update weight - just count number of times changed together
-          network[d.file][f] = network[d.file][f] + 1;
-          // update weight - based on what?
-//          network[d.file][f] = network[d.file][f] + d.additions + d.deletions;
-        });
-      });
-    });
-    console.log(network);
-
     const nodesByFile = new Map();
     let nodeId = 1;
     files.forEach(f => {
