@@ -50,7 +50,6 @@
       // TODO: ICM 2020-02-05: Can we use a map transformation?
       const rawNodes = [];
       hackedGraph.nodesByFile.forEach(function (value, key) {
-        console.log(value);
         rawNodes.push({ id: value.id, label: value.name });
       });
 
@@ -87,7 +86,6 @@
 
         const node = document.getElementById('output');
         node.innerText = text;
-        console.log(reader.result.substring(0, 200));
         const file = input.files[0];
         console.log('File name: ' + file.name + '\n'
             + 'type: ' + file.type + '\n'

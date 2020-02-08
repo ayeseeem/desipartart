@@ -7,6 +7,7 @@ function processGitLog(arrayOfLogLines) {
       c.diffs.forEach(d => files.add(d.file));
     });
 
+    console.log('' + files.size + ' files:');
     console.log(files);
 
     const nodesByFile = new Map();
@@ -17,7 +18,6 @@ function processGitLog(arrayOfLogLines) {
       nodesByFile.set(f, { id: nodeId, name: shortName });
       nodeId++;
     });
-    console.log(nodesByFile);
 
     const edges = [];
 
@@ -98,9 +98,6 @@ function processGitLog(arrayOfLogLines) {
 
   const rawCommits = [];
   var commitLines = null;
-    console.log('line: ' + line);
-    console.log('state: ' + state);
-
   arrayOfLogLines.forEach(function (line) {
     if (isInfoLine(line)) {
       state = states.info;
@@ -122,6 +119,7 @@ function processGitLog(arrayOfLogLines) {
     }
   });
 
+  console.log('' + rawCommits.length + ' commits:');
   console.log(rawCommits);
 
   const commits = rawCommits.map(makeCommit);
