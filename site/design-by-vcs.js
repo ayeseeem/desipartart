@@ -102,15 +102,15 @@ function processGitLog(arrayOfLogLines) {
     if (isInfoLine(line)) {
       state = states.info;
 
-      // finish any in-progress commit
-      if (commitLines !== null) {
-        rawCommits.push(commitLines);
-      }
-
       // start a new commit
       commitLines = [ line ];
     } else if (line === '') {
       state = states.skipping;
+
+      // finish any in-progress commit
+      if (commitLines !== null) {
+        rawCommits.push(commitLines);
+      }
     } else {
       state = states.diff;
 
