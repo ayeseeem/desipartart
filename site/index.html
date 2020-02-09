@@ -103,6 +103,34 @@
         // TODO: ICM 2020-02-06: make optional
         hackedGraph.edges = hackedGraph.edges.filter(edge => edge.from !== edge.to);
 
+        // TODO: ICM 2020-02-08: Add to an extracted graph object
+        function hasNoEdges(nodeId) {
+          const possible = hackedGraph.edges.find(edge => (edge.from === nodeId || edge.to === nodeId));
+          return possible === undefined;
+        }
+        // TODO: ICM 2020-02-09: Add to an extracted graph object
+        function deleteById(nodeId) {
+          hackedGraph.nodesByFile.forEach(function (value, key) {
+            const node = hackedGraph.nodesByFile.get(key);
+            if (nodeId === node.id) {
+              hackedGraph.nodesByFile.delete(key);
+            }
+          });
+        }
+
+        // Remove unconnected files
+        // TODO: ICM 2020-02-09: make optional
+        const unconnectedNodes = [];
+        hackedGraph.nodesByFile.forEach(function (value, key) {
+          const node = hackedGraph.nodesByFile.get(key);
+          if (hasNoEdges(node.id)) {
+            unconnectedNodes.push(node);
+          }
+        });
+        console.log('' + unconnectedNodes.length + ' unconnected Nodes:');
+        console.log(unconnectedNodes);
+        unconnectedNodes.forEach(node => deleteById(node.id));
+
         visJsDemo();
         displayChanges(hackedGraph);
       };
@@ -145,6 +173,7 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
   <p><strong>Load a file...</strong></p>
 
   <input type='file' accept='text/plain' onchange='openFile(event)'><br>
+  <input type="checkbox" disabled checked>Exclude unconnected files
 
   <p><strong>then check the console to see what's happened.</strong></p>
 
