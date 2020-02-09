@@ -20,7 +20,8 @@ TODOs
 - [ ] Follow file renames (includes moving folder?)
 - [ ] (Optionally) include/exclude self-links
 - [ ] (Optionally) include/exclude unlinked files
-- [x] Display shorter filenames? (what about duplicates?)
+- [ ] Exclude edges representing fewer than N changes
+  - Combine with exclude "unlinked" files - unlinked if edge is excluded
 - [ ] Combine trees based on paths - for example, treat these two files as
   being in the same package even though the paths differ:
 
@@ -34,6 +35,14 @@ TODOs
 - [ ] Keep track of dates and warn if log is not in chronological order
   (implying `--reverse` was not used to create the log).
   - Or better yet, automatically detect/fix order
+  - Does order matter if not using/following renames?
+
+
+### Visualisation Details ###
+
+- [x] Display shorter filenames? (what about duplicates?)
+- [ ] Is there a "pending" animation we can add to graph?
+- [ ] Highlight linked files when you select a Node. Or an Edge.
 
 
 ### Implementation Details ###
@@ -42,5 +51,4 @@ TODOs
   [vis.js ](https://visjs.org/)?
 - [ ] Clean up the vis.js graph, it's still based on the demo
 - [ ] Clean up the JavaScript for the demo, particularly use of `var`
-- [ ] Is there a "pending" animation we can add to graph?
 - [ ] Extract and encapsulate graph/network concept
