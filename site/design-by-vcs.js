@@ -39,16 +39,22 @@ function processGitLog(arrayOfLogLines) {
     }
 
     commits.forEach(c => {
+      // TODO: ICM 2020-02-11: Why a set, we expect only one line per file. Makes it easier to delete later, though
       const filesInCommit = new Set();
       c.diffs.forEach(d => {
         filesInCommit.add(d.file);
       });
+
+      // Get/create each possible edge, but no duplicates
+      // Include self links. Maybe needed one day, e.g. to record how much changed?
       c.diffs.forEach(d => {
         filesInCommit.forEach(f => {
           // update weight - just count number of times changed together
           const edge = edgeFor(d.file, f);
           edge.weight = edge.weight + 1;
         });
+        // Remove the processed file
+        filesInCommit.delete(d.file);
       });
     });
 
