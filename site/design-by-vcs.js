@@ -1,5 +1,6 @@
+var AYESEEEM = (function (module) {
+
 function processGitLog(arrayOfLogLines) {
-  'use strict';
 
   function processCommits(commits) {
     const files = new Set();
@@ -135,3 +136,9 @@ function processGitLog(arrayOfLogLines) {
   const hackedGraph = processCommits(commits);
   return hackedGraph;
 }
+
+  // Module 'desipartart'
+  module.desipartart = { processGitLog };
+
+  return module;
+}(AYESEEEM || {}));
