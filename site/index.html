@@ -94,7 +94,8 @@
         // `git log` seems to produce Linux line endings, even on Windows,
         // so that makes things simpler to process
         const lines = text.split('\n');
-        const hackedGraph = AYESEEEM.desipartart.processGitLog(lines);
+        const commits = AYESEEEM.desipartart.processGitLog(lines);
+        const hackedGraph = AYESEEEM.desipartart.processCommits(commits);
 
         // Remove self-links
         // TODO: ICM 2020-02-06: Consider whether this should be done earlier

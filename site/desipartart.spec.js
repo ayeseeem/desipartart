@@ -24,6 +24,18 @@ describe('processGitLog', function () {
   it('Function exists', function () {
     expect(processGitLog).toBeDefined();
   });
+});
+
+describe('processCommits', function () {
+
+  it('Function exists', function () {
+    const processCommits = AYESEEEM.desipartart.processCommits;
+    expect(processCommits).toBeDefined();
+  });
+});
+
+describe('Integration Tests', function () {
+  const module = AYESEEEM.desipartart;
 
   it('Minimal integration test - 1 commit, 1 file', function () {
 
@@ -38,7 +50,8 @@ describe('processGitLog', function () {
       ''
     ];
 
-    const result = processGitLog(arrayOfLogLines);
+    const commits = module.processGitLog(arrayOfLogLines);
+    const result = module.processCommits(commits);
 
     expect(result.nodesByFile).toBeDefined();
     expect(result.nodesByFile.size).toBe(1);
