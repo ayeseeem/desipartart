@@ -18,11 +18,33 @@ describe('desipartart Module', function () {
   });
 });
 
+AYESEEEM.desipartart.testFixtures = {};
+AYESEEEM.desipartart.testFixtures.simpleLogAsArrayOfLines = [
+  '--01dc01e--2020-02-14--ayeseeem',
+  '17	0	README.md',
+  ''
+];
+
 describe('processGitLog', function () {
   const processGitLog = AYESEEEM.desipartart.processGitLog;
 
   it('Function exists', function () {
     expect(processGitLog).toBeDefined();
+  });
+
+  it('Minimal example test - 1 commit, 1 file', function () {
+    const arrayOfLogLines = AYESEEEM.desipartart.testFixtures.simpleLogAsArrayOfLines;
+    const result = processGitLog(arrayOfLogLines);
+
+    expect(result.length).toBe(1);
+
+    const commit = result[0];
+    expect(commit.sha).toBe('01dc01e');
+    expect(commit.dateStr).toBe('2020-02-14');
+    expect(commit.user).toBe('ayeseeem');
+    expect(commit.diffs.length).toBe(1);
+    expect(commit.diffs[0])
+      .toEqual({ additions: 17, deletions: 0, file: 'README.md' });
   });
 });
 
@@ -44,11 +66,7 @@ describe('Integration Tests', function () {
       '--01dc01e--2020-02-14--ayeseeem\n' +
       '17	0	README.md\n';
 
-    const arrayOfLogLines = [
-      '--01dc01e--2020-02-14--ayeseeem',
-      '17	0	README.md',
-      ''
-    ];
+    const arrayOfLogLines = AYESEEEM.desipartart.testFixtures.simpleLogAsArrayOfLines;
 
     const commits = module.processGitLog(arrayOfLogLines);
     const result = module.processCommits(commits);
