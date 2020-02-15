@@ -84,8 +84,6 @@
       reader.onload = function () {
         const text = reader.result;
 
-        const node = document.getElementById('output');
-        node.innerText = text;
         const file = input.files[0];
         console.log('File name: ' + file.name + '\n'
             + 'type: ' + file.type + '\n'
@@ -180,10 +178,6 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
   <p><strong>then check the console to see what's happened.</strong></p>
 
   <div id="mynetwork"></div>
-
-  <pre><code id='output'>
-...
-  </code></pre>
 
   <a href="./SpecRunner.html">Unit tests</a>
 </body>
