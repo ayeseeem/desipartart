@@ -54,3 +54,13 @@ TODOs
 - [ ] Clean up the vis.js graph, it's still based on the demo
 - [ ] Clean up the JavaScript for the demo, particularly use of `var`
 - [ ] Extract and encapsulate graph/network concept
+
+
+Licence
+-------
+
+The licence for this code is TBD, but it will be a liberal licence like
+Apache or MIT.
+
+[Jasmine](https://jasmine.github.io/) (used for unit tests) is
+[`MIT.LICENSE`](site/test/lib/jasmine-3.5.0/MIT.LICENSE).
