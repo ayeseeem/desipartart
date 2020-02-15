@@ -21,7 +21,7 @@ describe('desipartart Module', function () {
 AYESEEEM.desipartart.testFixtures = {};
 AYESEEEM.desipartart.testFixtures.simpleLogAsArrayOfLines = [
   '--01dc01e--2020-02-14--ayeseeem',
-  '17	0	README.md',
+  '17	13	README.md',
   ''
 ];
 
@@ -44,7 +44,7 @@ describe('processGitLog', function () {
     expect(commit.user).toBe('ayeseeem');
     expect(commit.diffs.length).toBe(1);
     expect(commit.diffs[0])
-      .toEqual({ additions: 17, deletions: 0, file: 'README.md' });
+      .toEqual({ additions: 17, deletions: 13, file: 'README.md' });
   });
 });
 
@@ -64,7 +64,7 @@ describe('Integration Tests', function () {
     // EOLs are always \n - git log behaviour on Windows is \n
     const singleCommitLogOutput = '' +
       '--01dc01e--2020-02-14--ayeseeem\n' +
-      '17	0	README.md\n';
+      '17	13	README.md\n';
 
     const arrayOfLogLines = AYESEEEM.desipartart.testFixtures.simpleLogAsArrayOfLines;
 
