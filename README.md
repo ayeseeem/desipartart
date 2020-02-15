@@ -54,6 +54,18 @@ TODOs
 - [ ] Clean up the vis.js graph, it's still based on the demo
 - [ ] Clean up the JavaScript for the demo, particularly use of `var`
 - [ ] Extract and encapsulate graph/network concept
+- [ ] use [` vis.DataView`](https://visjs.github.io/vis-data/data/dataview.html)
+  to filter displayed data without modifying source data
+  <https://visjs.github.io/vis-network/examples/network/data/dynamicFiltering.html>
+- Prefer `=>` (arrow function expression) for short functions where possible
+
+
+### Worries ###
+
+- [ ] How come `package-info.java` is linked to so many files? Because it was
+  added with a lot of files? Do we want/need to distinguish between file add
+  and file change?
+- [ ] Why are there so few (no) leaf nodes?
 
 
 Licence
