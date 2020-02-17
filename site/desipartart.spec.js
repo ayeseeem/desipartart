@@ -46,6 +46,23 @@ describe('processGitLog', function () {
     expect(commit.diffs[0])
       .toEqual({ additions: 17, deletions: 13, file: 'README.md' });
   });
+
+  // @Characterization
+  it('Handles a commit with no files, if such a concept exists', function () {
+    const arrayOfLogLines = [
+      '--01dc01e--2020-02-14--ayeseeem',
+      ''
+    ];
+    const result = processGitLog(arrayOfLogLines);
+
+    expect(result.length).toBe(1);
+
+    const commit = result[0];
+    expect(commit.sha).toBe('01dc01e');
+    expect(commit.dateStr).toBe('2020-02-14');
+    expect(commit.user).toBe('ayeseeem');
+    expect(commit.diffs.length).toBe(0);
+  });
 });
 
 describe('processCommits', function () {
