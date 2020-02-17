@@ -47,6 +47,21 @@ describe('processGitLog', function () {
       .toEqual({ additions: 17, deletions: 13, file: 'README.md' });
   });
 
+  it('Handles `--` in username', function () {
+    const arrayOfLogLines = [
+      '--1a1a1a1--2020-02-17--username--with--double--dash',
+      '17	13	Some.file',
+      ''
+    ];
+
+    const result = processGitLog(arrayOfLogLines);
+
+    const commit = result[0];
+    expect(commit.sha).toBe('1a1a1a1');
+    expect(commit.dateStr).toBe('2020-02-17');
+    expect(commit.user).toBe('username--with--double--dash');
+  });
+
   // @Characterization
   it('Handles a commit with no files, if such a concept exists', function () {
     const arrayOfLogLines = [

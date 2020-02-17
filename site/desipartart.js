@@ -85,7 +85,7 @@ var AYESEEEM = (function (module) {
     function makeCommit(lines) {
       const infoLine = lines[0];
 
-      const infoRegex = /--(.*)--(.*)--(.*)/;
+      const infoRegex = /--(.*?)--(.*?)--(.*)/;
       const found = infoLine.match(infoRegex);
 
       // TODO: ICM 2020-01-28: Assert found.length === 4
