@@ -142,3 +142,40 @@ describe('Integration Tests', function () {
       .toEqual({ from: 1, to: 1, weight: 1});
   });
 });
+
+describe('file utils', function () {
+
+  it('pathOf', function () {
+    const pathOf = AYESEEEM.desipartart.pathOf;
+
+    expect(pathOf('path/file.ext')).toBe('path');
+    expect(pathOf('path/file_without_ext')).toBe('path');
+  
+    expect(pathOf('some/path/file.ext')).toBe('some/path');
+    expect(pathOf('some/path/file_without_ext')).toBe('some/path');
+  
+    expect(pathOf('/some/path/file.ext')).toBe('/some/path');
+    expect(pathOf('/some/path/file_without_ext')).toBe('/some/path');
+  
+    expect(pathOf('file.ext')).toBe('');
+    expect(pathOf('file_without_ext')).toBe('');
+  });
+
+  it('filenameOf', function () {
+    const filenameOf = AYESEEEM.desipartart.filenameOf;
+
+    expect(filenameOf('path/file.ext')).toBe('file.ext');
+    expect(filenameOf('path/file_without_ext')).toBe('file_without_ext');
+
+    expect(filenameOf('some/path/file.ext')).toBe('file.ext');
+    expect(filenameOf('some/path/file_without_ext')).toBe('file_without_ext');
+
+    expect(filenameOf('/some/path/file.ext')).toBe('file.ext');
+    expect(filenameOf('/some/path/file_without_ext')).toBe('file_without_ext');
+
+    expect(filenameOf('file.ext')).toBe('file.ext');
+    expect(filenameOf('file_without_ext')).toBe('file_without_ext');
+  });
+
+});
+

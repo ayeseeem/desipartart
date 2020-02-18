@@ -1,5 +1,13 @@
 var AYESEEEM = (function (module) {
 
+  function pathOf(filepath) {
+    return filepath.substring(0, filepath.lastIndexOf("/"));
+  }
+
+  function filenameOf(filepath) {
+    return filepath.substring(filepath.lastIndexOf("/") + 1);
+  }
+
   function processCommits(commits) {
     const files = new Set();
     commits.forEach(c => {
@@ -12,8 +20,7 @@ var AYESEEEM = (function (module) {
     const nodesByFile = new Map();
     let nodeId = 1;
     files.forEach(f => {
-      // TODO: ICM 2020-02-06: Add shortName() as a func?
-      const shortName = f.substring(f.lastIndexOf("/") + 1);
+      const shortName = filenameOf(f);
       nodesByFile.set(f, { id: nodeId, name: shortName });
       nodeId++;
     });
@@ -137,7 +144,7 @@ var AYESEEEM = (function (module) {
   }
 
   // Module 'desipartart'
-  module.desipartart = { processGitLog, processCommits };
+  module.desipartart = { pathOf, filenameOf, processGitLog, processCommits };
 
   return module;
 }(AYESEEEM || {}));
