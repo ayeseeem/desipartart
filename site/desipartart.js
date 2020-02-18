@@ -72,7 +72,7 @@ var AYESEEEM = (function (module) {
     }
 
     function makeDiff(diffLine) {
-      const diffRegex = /(.*)\t(.*)\t(.*)/;
+      const diffRegex = /(.*?)\t(.*?)\t(.*)/;
       const found = diffLine.match(diffRegex);
       // TODO: ICM 2020-01-29: Assert found.length === 4
       // TODO: ICM 2020-01-30: Handle invalid args?

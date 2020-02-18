@@ -62,6 +62,34 @@ describe('processGitLog', function () {
     expect(commit.user).toBe('username--with--double--dash');
   });
 
+  it('Handles `tab` in filename - tested with tab chars', function () {
+    const arrayOfLogLines = [
+      '--1234abc--2020-02-18--some-username',
+      '111	222	Some	file',
+      ''
+    ];
+
+    const result = processGitLog(arrayOfLogLines);
+
+    const commit = result[0];
+    expect(commit.diffs[0])
+      .toEqual({ additions: 111, deletions: 222, file: 'Some	file' });
+  });
+
+  it('Handles `tab` in filename - tested with \\t', function () {
+    const arrayOfLogLines = [
+      '--1234abc--2020-02-18--some-username',
+      '111\t222\tSome\tfile',
+      ''
+    ];
+
+    const result = processGitLog(arrayOfLogLines);
+
+    const commit = result[0];
+    expect(commit.diffs[0])
+      .toEqual({ additions: 111, deletions: 222, file: 'Some\tfile' });
+  });
+
   // @Characterization
   it('Handles a commit with no files, if such a concept exists', function () {
     const arrayOfLogLines = [
