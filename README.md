@@ -10,7 +10,7 @@ Concept:
 > By looking at which files change together, based on change sets from the
 > history from a version control system?
 
-Look at [`index.html`](site\index.html) for more.
+Look at [`index.html`](site/index.html) for more.
 
 TODOs
 -----
