@@ -110,9 +110,28 @@ describe('processGitLog', function () {
 
 describe('processCommits', function () {
 
+  const processCommits = AYESEEEM.desipartart.processCommits;
+
   it('Function exists', function () {
-    const processCommits = AYESEEEM.desipartart.processCommits;
     expect(processCommits).toBeDefined();
+  });
+
+  const commit_example = {
+    sha: '1111aaa',
+    dateStr: '2020-02-21',
+    user: 'some-user',
+    diffs: [{ additions: 123, deletions: 123, file: 'path/file.txt' }]
+  };
+
+  it('Sets name to filename with path stripped', function () {
+    const result = processCommits([ commit_example ]);
+    expect(result.nodesByFile.get('path/file.txt').name).toBe('file.txt');
+  });
+
+  it('Uses full path/filename as key, not just filename', function () {
+    const result = processCommits([ commit_example ]);
+    expect(result.nodesByFile.get('path/file.txt')).toBeDefined();
+    expect(result.nodesByFile.get('file.txt')).not.toBeDefined();
   });
 });
 
