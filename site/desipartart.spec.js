@@ -116,10 +116,10 @@ describe('processCommits', function () {
   });
 });
 
-describe('Integration Tests', function () {
+describe('Minimal integration test', function () {
   const module = AYESEEEM.desipartart;
 
-  it('Minimal integration test - 1 commit, 1 file', function () {
+  it('1 commit, 1 file', function () {
 
     // EOLs are always \n - git log behaviour on Windows is \n
     const singleCommitLogOutput = '' +
