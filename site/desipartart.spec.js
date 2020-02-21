@@ -169,13 +169,13 @@ describe('file utils', function () {
 
     expect(pathOf('path/file.ext')).toBe('path');
     expect(pathOf('path/file_without_ext')).toBe('path');
-  
+
     expect(pathOf('some/path/file.ext')).toBe('some/path');
     expect(pathOf('some/path/file_without_ext')).toBe('some/path');
-  
+
     expect(pathOf('/some/path/file.ext')).toBe('/some/path');
     expect(pathOf('/some/path/file_without_ext')).toBe('/some/path');
-  
+
     expect(pathOf('file.ext')).toBe('');
     expect(pathOf('file_without_ext')).toBe('');
   });
