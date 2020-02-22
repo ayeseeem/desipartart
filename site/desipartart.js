@@ -159,13 +159,48 @@ var AYESEEEM = (function (module) {
     console.log(histogram);
   }
 
+  function analyseGraph(hackedGraph) {
+
+    const weights = hackedGraph.edges.map(e => e.weight);
+
+    // TODO: ICM 2020-02-22: Use a Map
+    const histogram = weights.reduce(function (acc, curr) {
+      if (acc[curr] === undefined) {
+        acc[curr] = 1;
+      } else {
+        acc[curr] += 1;
+      }
+    
+      return acc;
+    }, {});
+
+    console.log('number of changes per edge - histogram:');
+    console.log(histogram);
+
+    // Group By weight, so we can find the most linked files
+    const groupedByWeight = hackedGraph.edges.reduce(function (acc, curr) {
+      const weight = curr.weight;
+      if (acc.get(weight) === undefined) {
+        acc.set(weight, [ curr ]);
+      } else {
+        acc.get(weight).push(curr);
+      }
+    
+      return acc;
+    }, new Map());
+
+    console.log('edges grouped by weight:');
+    console.log(groupedByWeight);
+  }
+
   // Module 'desipartart'
   module.desipartart = {
     pathOf,
     filenameOf,
     processGitLog,
     analyseCommits,
-    processCommits
+    processCommits,
+    analyseGraph
   };
 
   return module;
