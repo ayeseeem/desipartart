@@ -141,8 +141,32 @@ var AYESEEEM = (function (module) {
     return commits;
   }
 
+  function analyseCommits(commits) {
+    const filesPerCommit = commits.map(c => c.diffs.length);
+
+    // TODO: ICM 2020-02-22: Use a Map
+    const histogram = filesPerCommit.reduce(function (acc, curr) {
+      if (acc[curr] === undefined) {
+        acc[curr] = 1;
+      } else {
+        acc[curr] += 1;
+      }
+    
+      return acc;
+    }, {});
+
+    console.log('number of files changed per commit - histogram:');
+    console.log(histogram);
+  }
+
   // Module 'desipartart'
-  module.desipartart = { pathOf, filenameOf, processGitLog, processCommits };
+  module.desipartart = {
+    pathOf,
+    filenameOf,
+    processGitLog,
+    analyseCommits,
+    processCommits
+  };
 
   return module;
 }(AYESEEEM || {}));

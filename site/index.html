@@ -119,6 +119,9 @@
         // so that makes things simpler to process
         const lines = text.split('\n');
         const commits = AYESEEEM.desipartart.processGitLog(lines);
+
+        AYESEEEM.desipartart.analyseCommits(commits);
+
         const hackedGraph = AYESEEEM.desipartart.processCommits(commits);
 
         // Remove self-links
