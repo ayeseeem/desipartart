@@ -161,7 +161,10 @@ var AYESEEEM = (function (module) {
 
   function analyseGraph(hackedGraph) {
 
-    const weights = hackedGraph.edges.map(e => e.weight);
+    const nonSelfEdges = hackedGraph.edges
+        .filter(edge => edge.from !== edge.to);
+
+    const weights = nonSelfEdges.map(e => e.weight);
 
     // TODO: ICM 2020-02-22: Use a Map
     const histogram = weights.reduce(function (acc, curr) {
@@ -178,7 +181,7 @@ var AYESEEEM = (function (module) {
     console.log(histogram);
 
     // Group By weight, so we can find the most linked files
-    const groupedByWeight = hackedGraph.edges.reduce(function (acc, curr) {
+    const groupedByWeight = nonSelfEdges.reduce(function (acc, curr) {
       const weight = curr.weight;
       if (acc.get(weight) === undefined) {
         acc.set(weight, [ curr ]);
