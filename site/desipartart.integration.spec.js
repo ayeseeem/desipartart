@@ -454,7 +454,7 @@ describe('Integration Tests', function () {
       expect(result.nodesByFile.get('.gitignore'))
         .toEqual({ id: 1, name: '.gitignore' });
 
-      // unconnected note
+      // unconnected node
       expect(result.nodesByFile.get('LICENSE.md'))
         .toEqual({ id: 26, name: 'LICENSE.md' });
 
