@@ -51,8 +51,7 @@ TODOs
 
 - [ ] Use an up-to-date version of [visjs](https://github.com/visjs) instead of
   [vis.js ](https://visjs.org/)?
-- [ ] Clean up the vis.js graph, it's still based on the demo
-- [ ] Clean up the JavaScript for the demo, particularly use of `var`
+  - Don't use the Cloudflare one, install locally
 - [ ] Extract and encapsulate graph/network concept
 - [ ] use [` vis.DataView`](https://visjs.github.io/vis-data/data/dataview.html)
   to filter displayed data without modifying source data
