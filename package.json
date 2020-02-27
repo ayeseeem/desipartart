@@ -1,0 +1,17 @@
+{
+  "name": "desipartart",
+  "version": "0.0.0-no-version",
+  "description": "Design Analysis by VCS - FAKED package,json to record library versions",
+  "homepage": "https://github.com/ayeseeem/desipartart",
+  "license": "TBC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayeseeem/desipartart.git"
+  },
+  "dependencies": {
+    "vis-network": "7.3.6"
+  },
+  "devDependencies": {
+    "jasmine": "3.5.0"
+  }
+}
