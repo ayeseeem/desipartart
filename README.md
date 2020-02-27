@@ -73,5 +73,10 @@ Licence
 The licence for this code is TBD, but it will be a liberal licence like
 Apache or MIT.
 
-[Jasmine](https://jasmine.github.io/) (used for unit tests) is
-[`MIT.LICENSE`](site/test/lib/jasmine-3.5.0/MIT.LICENSE).
+- [vis.js](https://github.com/visjs)
+  [vis-network](https://github.com/visjs/vis-network) (used for network graph
+  visualisation) is dual
+  [`LICENSE-APACHE-2.0`](https://github.com/visjs/vis-network/blob/master/LICENSE-APACHE-2.0) and
+  [`LICENSE-MIT`](https://github.com/visjs/vis-network/blob/master/LICENSE-MIT).
+- [Jasmine](https://jasmine.github.io/) (used for unit tests) is
+  [`MIT.LICENSE`](site/test/lib/jasmine-3.5.0/MIT.LICENSE).
