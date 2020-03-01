@@ -159,11 +159,15 @@ var AYESEEEM = (function (module) {
     console.log(histogram);
   }
 
-  function analyseGraph(hackedGraph) {
-
+  // TODO: ICM 2020-03-01: Add to an extracted graph object
+  function getNonSelfEdges(hackedGraph) {
     const nonSelfEdges = hackedGraph.edges
         .filter(edge => edge.from !== edge.to);
+    return nonSelfEdges;
+  }
 
+  function changesPerEdge(hackedGraph) {
+    const nonSelfEdges = getNonSelfEdges(hackedGraph);
     const weights = nonSelfEdges.map(e => e.weight);
 
     // TODO: ICM 2020-02-22: Use a Map
@@ -177,8 +181,11 @@ var AYESEEEM = (function (module) {
       return acc;
     }, {});
 
-    console.log('number of changes per edge - histogram:');
-    console.log(histogram);
+    return histogram;
+  }
+
+  function edgesGroupedByWeight(hackedGraph) {
+    const nonSelfEdges = getNonSelfEdges(hackedGraph);
 
     // Group By weight, so we can find the most linked files
     const groupedByWeight = nonSelfEdges.reduce(function (acc, curr) {
@@ -192,6 +199,15 @@ var AYESEEEM = (function (module) {
       return acc;
     }, new Map());
 
+    return groupedByWeight;
+  }
+
+  function analyseGraph(hackedGraph) {
+    const histogram = changesPerEdge(hackedGraph);
+    console.log('number of changes per edge - histogram:');
+    console.log(histogram);
+
+    const groupedByWeight = edgesGroupedByWeight(hackedGraph);
     console.log('edges grouped by weight:');
     console.log(groupedByWeight);
   }
