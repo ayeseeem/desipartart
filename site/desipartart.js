@@ -166,24 +166,6 @@ var AYESEEEM = (function (module) {
     return nonSelfEdges;
   }
 
-  function changesPerEdge(hackedGraph) {
-    const nonSelfEdges = getNonSelfEdges(hackedGraph);
-    const weights = nonSelfEdges.map(e => e.weight);
-
-    // TODO: ICM 2020-02-22: Use a Map
-    const histogram = weights.reduce(function (acc, curr) {
-      if (acc[curr] === undefined) {
-        acc[curr] = 1;
-      } else {
-        acc[curr] += 1;
-      }
-    
-      return acc;
-    }, {});
-
-    return histogram;
-  }
-
   function edgesGroupedByWeight(hackedGraph) {
     const nonSelfEdges = getNonSelfEdges(hackedGraph);
 
@@ -203,13 +185,14 @@ var AYESEEEM = (function (module) {
   }
 
   function analyseGraph(hackedGraph) {
-    const histogram = changesPerEdge(hackedGraph);
-    console.log('number of changes per edge - histogram:');
-    console.log(histogram);
-
     const groupedByWeight = edgesGroupedByWeight(hackedGraph);
     console.log('edges grouped by weight:');
     console.log(groupedByWeight);
+
+    const histogram = {};
+    groupedByWeight.forEach((value, key) => histogram[key] = value.length);
+    console.log('number of changes per edge - histogram:');
+    console.log(histogram);
   }
 
   // Module 'desipartart'
