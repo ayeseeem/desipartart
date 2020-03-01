@@ -184,17 +184,6 @@ var AYESEEEM = (function (module) {
     return groupedByWeight;
   }
 
-  function analyseGraph(hackedGraph) {
-    const groupedByWeight = edgesGroupedByWeight(hackedGraph);
-    console.log('edges grouped by weight:');
-    console.log(groupedByWeight);
-
-    const histogram = {};
-    groupedByWeight.forEach((value, key) => histogram[key] = value.length);
-    console.log('number of changes per edge - histogram:');
-    console.log(histogram);
-  }
-
   // Module 'desipartart'
   module.desipartart = {
     pathOf,
@@ -202,7 +191,7 @@ var AYESEEEM = (function (module) {
     processGitLog,
     analyseCommits,
     processCommits,
-    analyseGraph
+    edgesGroupedByWeight
   };
 
   return module;

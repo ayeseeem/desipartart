@@ -95,6 +95,17 @@
       updateSeed(network.getSeed());
     }
 
+    function analyseGraph(hackedGraph) {
+      const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
+      console.log('edges grouped by weight:');
+      console.log(groupedByWeight);
+
+      const histogram = {};
+      groupedByWeight.forEach((value, key) => histogram[key] = value.length);
+      console.log('number of changes per edge - histogram:');
+      console.log(histogram);
+    }
+
     const openFile = function (event) {
       const input = event.target;
 
@@ -118,7 +129,7 @@
 
         const hackedGraph = AYESEEEM.desipartart.processCommits(commits);
 
-        AYESEEEM.desipartart.analyseGraph(hackedGraph);
+        analyseGraph(hackedGraph);
 
         // Remove self-links
         // TODO: ICM 2020-02-06: Consider whether this should be done earlier
