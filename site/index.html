@@ -4,6 +4,7 @@
 <head>
   <script src="lib/visjs/vis-network/7.3.6/dist/vis-network.js"></script>
   <link href="lib/visjs/vis-network/7.3.6/dist/vis-network.min.css" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style type="text/css">
     #mynetwork {
       width: 800px;
@@ -104,6 +105,18 @@
       groupedByWeight.forEach((value, key) => histogram[key] = value.length);
       console.log('number of changes per edge - histogram:');
       console.log(histogram);
+
+      // TODO: ICM 2020-03-01: Remove this duplication - see getNonSelfEdges()
+      const nonSelfEdges = hackedGraph.edges
+          .filter(edge => edge.from !== edge.to);
+
+      const weights = nonSelfEdges.map(e => e.weight);
+      const trace = {
+        x: weights,
+        type: 'histogram',
+      };
+      const data = [ trace ];
+      Plotly.newPlot('changes-per-edge', data);
     }
 
     const openFile = function (event) {
@@ -213,6 +226,9 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
   <label for="seed">Layout seed</label>
   <input type="checkbox" id="useSeed" >
   <label for="useSeed">Use this seed</label>
+
+  <p>Histogram of number of changes/edge:</p>
+  <div id='changes-per-edge'><!-- histogram of number of changes/edge --></div>
 
   <p><strong>Wait (quite) a while, and you should see a graph... or check the console (F12?) to see something's happened.</strong></p>
 
