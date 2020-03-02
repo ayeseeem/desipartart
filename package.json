@@ -9,7 +9,8 @@
     "url": "https://github.com/ayeseeem/desipartart.git"
   },
   "dependencies": {
-    "vis-network": "7.3.6"
+    "vis-network": "7.3.6",
+    "plotly.js-dist": "1.52.2"
   },
   "devDependencies": {
     "jasmine": "3.5.0"

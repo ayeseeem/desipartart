@@ -78,5 +78,8 @@ Apache or MIT.
   visualisation) is dual
   [`LICENSE-APACHE-2.0`](https://github.com/visjs/vis-network/blob/master/LICENSE-APACHE-2.0) and
   [`LICENSE-MIT`](https://github.com/visjs/vis-network/blob/master/LICENSE-MIT).
+- [Plotly.js](https://plot.ly/javascript/) (used for various visualisations) is
+  MIT License
+  [`LICENSE`](https://github.com/plotly/plotly.js/blob/master/LICENSE).
 - [Jasmine](https://jasmine.github.io/) (used for unit tests) is
   [`MIT.LICENSE`](site/test/lib/jasmine-3.5.0/MIT.LICENSE).
