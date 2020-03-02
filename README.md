@@ -49,14 +49,14 @@ TODOs
 
 ### Implementation Details ###
 
-- [ ] Use an up-to-date version of [visjs](https://github.com/visjs) instead of
+- [x] Use an up-to-date version of [visjs](https://github.com/visjs) instead of
   [vis.js ](https://visjs.org/)?
-  - Don't use the Cloudflare one, install locally
+  - [x] Don't use the Cloudflare one, install locally
 - [ ] Extract and encapsulate graph/network concept
-- [ ] use [` vis.DataView`](https://visjs.github.io/vis-data/data/dataview.html)
+- [ ] Use [`vis.DataView`](https://visjs.github.io/vis-data/data/dataview.html)
   to filter displayed data without modifying source data
   <https://visjs.github.io/vis-network/examples/network/data/dynamicFiltering.html>
-- Prefer `=>` (arrow function expression) for short functions where possible
+- [ ] Prefer `=>` (arrow function expression) for short functions where possible
 
 
 ### Worries ###
