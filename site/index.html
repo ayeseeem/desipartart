@@ -106,10 +106,7 @@
       console.log('number of changes per edge - histogram:');
       console.log(histogram);
 
-      // TODO: ICM 2020-03-01: Remove this duplication - see getNonSelfEdges()
-      const nonSelfEdges = hackedGraph.edges
-          .filter(edge => edge.from !== edge.to);
-
+      const nonSelfEdges = hackedGraph.getNonSelfEdges();
       const weights = nonSelfEdges.map(e => e.weight);
       const trace = {
         x: weights,

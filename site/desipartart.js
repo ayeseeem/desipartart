@@ -67,7 +67,13 @@ var AYESEEEM = (function (module) {
     console.log(edges);
     console.log('----------------------------------------------------------');
 
-    return { nodesByFile, edges };
+    const hackedGraph = { nodesByFile, edges };
+    hackedGraph.getNonSelfEdges = function() {
+      const nonSelfEdges = this.edges
+          .filter(edge => edge.from !== edge.to);
+      return nonSelfEdges;
+    };
+    return hackedGraph;
   }
 
   function processGitLog(arrayOfLogLines) {
@@ -159,15 +165,8 @@ var AYESEEEM = (function (module) {
     console.log(histogram);
   }
 
-  // TODO: ICM 2020-03-01: Add to an extracted graph object
-  function getNonSelfEdges(hackedGraph) {
-    const nonSelfEdges = hackedGraph.edges
-        .filter(edge => edge.from !== edge.to);
-    return nonSelfEdges;
-  }
-
   function edgesGroupedByWeight(hackedGraph) {
-    const nonSelfEdges = getNonSelfEdges(hackedGraph);
+    const nonSelfEdges = hackedGraph.getNonSelfEdges();
 
     // Group By weight, so we can find the most linked files
     const groupedByWeight = nonSelfEdges.reduce(function (acc, curr) {
