@@ -106,6 +106,48 @@
       console.log('number of changes per edge - histogram:');
       console.log(histogram);
 
+      // START: Find Max Weight (key)
+      // TODO: ICM 2020-03-08: Would a better way be to sort the edges directly?
+
+      // Make a new map, sorted/iterable by weight
+      // suggested by https://stackoverflow.com/a/31159284
+      const groupedByWeightAsc = new Map([...groupedByWeight.entries()].sort((a, b) => a[0] - b[0]));
+      console.log('groupedByWeightAsc');
+      console.log(groupedByWeightAsc);
+
+      const uniqueWeights = [...groupedByWeightAsc.keys()];
+      console.log('uniqueWeights');
+      console.log(uniqueWeights);
+
+      // assert - sorted in asc order      
+      // So last value is max
+      const mostBoundFilesWeight = uniqueWeights[uniqueWeights.length - 1];
+      console.log('mostBoundFilesWeight');
+      console.log(mostBoundFilesWeight);
+
+      // END: Find Max Weight (key)
+      const weight = mostBoundFilesWeight;
+      const list = document.getElementById('most-bound');
+
+      // START: List files bound same number of times
+      const boundFilesByWeight = groupedByWeight.get(weight);
+      console.log('boundFilesByWeight');
+      console.log(boundFilesByWeight);
+
+      // There can be multiple edges with the given weight
+      boundFilesByWeight.forEach(function (edge) {
+        const item = document.createElement('li');
+        // TODO: ICM 2020-03-08: Replace node IDs with file names
+        const newContent = document.createTextNode('' +
+          edge.from +
+          ' and ' + edge.to +
+          ' changed together ' + edge.weight + ' times');
+        item.appendChild(newContent);
+        list.insertBefore(item, null);
+      });
+      // END: List files bound same number of times
+
+      // Plot Histogram
       const nonSelfEdges = hackedGraph.getNonSelfEdges();
       const weights = nonSelfEdges.map(e => e.weight);
       const trace = {
@@ -226,6 +268,11 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
 
   <p>Histogram of number of changes/edge:</p>
   <div id='changes-per-edge'><!-- histogram of number of changes/edge --></div>
+
+  <p>Most Bound (file changed together the most):</p>
+  <ul id='most-bound'>
+    <!-- entries will be added -->
+  </ul>
 
   <p><strong>Wait (quite) a while, and you should see a graph... or check the console (F12?) to see something's happened.</strong></p>
 
