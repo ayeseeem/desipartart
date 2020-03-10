@@ -119,20 +119,9 @@
       return mostBoundFilesWeight;
     }
 
-    function analyseGraph(hackedGraph) {
-      const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
-      console.log('edges grouped by weight:');
-      console.log(groupedByWeight);
-
-      const histogram = {};
-      groupedByWeight.forEach((value, key) => histogram[key] = value.length);
-      console.log('number of changes per edge - histogram:');
-      console.log(histogram);
-
-      const weight = findMaxWeight(hackedGraph);
+    function listFilesBoundWithWeight(groupedByWeight, weight) {
       const list = document.getElementById('most-bound');
 
-      // START: List files bound same number of times
       const boundFilesByWeight = groupedByWeight.get(weight);
       console.log('boundFilesByWeight');
       console.log(boundFilesByWeight);
@@ -148,7 +137,20 @@
         item.appendChild(newContent);
         list.insertBefore(item, null);
       });
-      // END: List files bound same number of times
+    }
+  
+    function analyseGraph(hackedGraph) {
+      const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
+      console.log('edges grouped by weight:');
+      console.log(groupedByWeight);
+
+      const histogram = {};
+      groupedByWeight.forEach((value, key) => histogram[key] = value.length);
+      console.log('number of changes per edge - histogram:');
+      console.log(histogram);
+
+      const weight = findMaxWeight(hackedGraph);
+      listFilesBoundWithWeight(groupedByWeight, weight);
 
       // Plot Histogram
       const nonSelfEdges = hackedGraph.getNonSelfEdges();
