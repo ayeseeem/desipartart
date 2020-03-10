@@ -96,17 +96,9 @@
       updateSeed(network.getSeed());
     }
 
-    function analyseGraph(hackedGraph) {
+    function findMaxWeight(hackedGraph) {
       const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
-      console.log('edges grouped by weight:');
-      console.log(groupedByWeight);
 
-      const histogram = {};
-      groupedByWeight.forEach((value, key) => histogram[key] = value.length);
-      console.log('number of changes per edge - histogram:');
-      console.log(histogram);
-
-      // START: Find Max Weight (key)
       // TODO: ICM 2020-03-08: Would a better way be to sort the edges directly?
 
       // Make a new map, sorted/iterable by weight
@@ -124,9 +116,20 @@
       const mostBoundFilesWeight = uniqueWeights[uniqueWeights.length - 1];
       console.log('mostBoundFilesWeight');
       console.log(mostBoundFilesWeight);
+      return mostBoundFilesWeight;
+    }
 
-      // END: Find Max Weight (key)
-      const weight = mostBoundFilesWeight;
+    function analyseGraph(hackedGraph) {
+      const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
+      console.log('edges grouped by weight:');
+      console.log(groupedByWeight);
+
+      const histogram = {};
+      groupedByWeight.forEach((value, key) => histogram[key] = value.length);
+      console.log('number of changes per edge - histogram:');
+      console.log(histogram);
+
+      const weight = findMaxWeight(hackedGraph);
       const list = document.getElementById('most-bound');
 
       // START: List files bound same number of times
