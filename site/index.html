@@ -119,8 +119,15 @@
       return mostBoundFilesWeight;
     }
 
+    function empty(domElement) {
+      while (domElement.firstChild) {
+        domElement.firstChild.remove();
+      }
+    }
+
     function listFilesBoundWithWeight(groupedByWeight, weight) {
       const list = document.getElementById('most-bound');
+      empty(list);
 
       const boundFilesByWeight = groupedByWeight.get(weight);
       console.log('boundFilesByWeight');
@@ -161,6 +168,13 @@
       };
       const data = [ trace ];
       Plotly.newPlot('changes-per-edge', data);
+
+      const myPlot = document.getElementById('changes-per-edge');
+      myPlot.on('plotly_click', function (data) {
+        // relies on histogram grouping weight individually, not in bins
+        const weight = data.points[0].x;
+        listFilesBoundWithWeight(groupedByWeight, weight);
+      });
     }
 
     const openFile = function (event) {
@@ -274,7 +288,8 @@ git log --reverse --all --numstat --date=short --pretty=format:'--%h--%ad--%aN' 
   <p>Histogram of number of changes/edge:</p>
   <div id='changes-per-edge'><!-- histogram of number of changes/edge --></div>
 
-  <p>Most Bound (file changed together the most):</p>
+  <p>Most Bound (file changed together the most): <span id='most-bound-weight'></span> times.</p>
+  <p>Bound (file changed together) <span id='bound-weight'></span> times: (click on histogram above)</p>
   <ul id='most-bound'>
     <!-- entries will be added -->
   </ul>
