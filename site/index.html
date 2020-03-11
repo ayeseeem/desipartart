@@ -126,6 +126,9 @@
     }
 
     function listFilesBoundWithWeight(groupedByWeight, weight) {
+      const weightElement = document.getElementById('bound-weight');
+      weightElement.textContent = weight;
+
       const list = document.getElementById('most-bound');
       empty(list);
 
@@ -139,8 +142,7 @@
         // TODO: ICM 2020-03-08: Replace node IDs with file names
         const newContent = document.createTextNode('' +
           edge.from +
-          ' and ' + edge.to +
-          ' changed together ' + edge.weight + ' times');
+          ' and ' + edge.to);
         item.appendChild(newContent);
         list.insertBefore(item, null);
       });
