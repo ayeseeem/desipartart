@@ -159,6 +159,9 @@
       console.log(histogram);
 
       const weight = findMaxWeight(hackedGraph);
+      const weightElement = document.getElementById('most-bound-weight');
+      weightElement.textContent = weight;
+
       listFilesBoundWithWeight(groupedByWeight, weight);
 
       // Plot Histogram
