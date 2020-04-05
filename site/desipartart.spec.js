@@ -135,6 +135,57 @@ describe('processCommits', function () {
   });
 });
 
+describe('edgesGroupedByWeight', function () {
+
+  const edgesGroupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight;
+
+  // TODO: ICM 2020-04-05: Need to be able to create simple test graph better than this
+  const nodesByFile = {};
+  // exampleEdge = { from: fromNodeId, to: toNodeId, weight: 0 };
+
+  // TODO: ICM 2020-04-05: Test with input deliberately not grouped by weights
+  // Deliberately not sorted by weight (for later testing of sortedness)
+  const edges = [
+    { from: 1, to: 2, weight: 4444 },
+    { from: 1, to: 3, weight: 22 },
+    { from: 1, to: 4, weight: 22 },
+    { from: 1, to: 5, weight: 333 },
+    { from: 1, to: 6, weight: 333 },
+    { from: 1, to: 7, weight: 333 },
+  ];
+  const hackedGraph = { nodesByFile, edges };
+  hackedGraph.getNonSelfEdges = function () {
+    return this.edges;
+  }
+
+  it('Groups by weight', function () {
+    const result = edgesGroupedByWeight(hackedGraph);
+    expect(result).toBeInstanceOf(Map);
+    expect(result.size).toBe(3);
+
+    // @Characterization: currently unsorted
+    expect([...result.keys()]).toEqual([4444, 22, 333]);
+
+    const inAnyOrder = jasmine.arrayWithExactContents;
+    expect([...result.keys()]).toEqual(inAnyOrder([22, 333, 4444]));
+
+    expect(result.get(22)).toEqual(inAnyOrder([
+      { from: 1, to: 3, weight: 22 },
+      { from: 1, to: 4, weight: 22 },
+    ]));
+
+    expect(result.get(333)).toEqual(inAnyOrder([
+      { from: 1, to: 5, weight: 333 },
+      { from: 1, to: 6, weight: 333 },
+      { from: 1, to: 7, weight: 333 },
+    ]));
+
+    expect(result.get(4444)).toEqual(inAnyOrder([
+      { from: 1, to: 2, weight: 4444 },
+    ]));
+  });
+});
+
 describe('Minimal integration test', function () {
   const module = AYESEEEM.desipartart;
 
