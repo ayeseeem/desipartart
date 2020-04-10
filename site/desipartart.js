@@ -180,7 +180,11 @@ var AYESEEEM = (function (module) {
       return acc;
     }, new Map());
 
-    return groupedByWeight;
+    // Make a new map, sorted/iterable by weight
+    // suggested by https://stackoverflow.com/a/31159284
+    const groupedByWeightAsc = new Map([...groupedByWeight.entries()].sort((a, b) => a[0] - b[0]));
+
+    return groupedByWeightAsc;
   }
 
   // Module 'desipartart'

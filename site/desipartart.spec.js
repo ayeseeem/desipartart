@@ -144,7 +144,7 @@ describe('edgesGroupedByWeight', function () {
   // exampleEdge = { from: fromNodeId, to: toNodeId, weight: 0 };
 
   // TODO: ICM 2020-04-05: Test with input deliberately not grouped by weights
-  // Deliberately not sorted by weight (for later testing of sortedness)
+  // Deliberately not sorted by weight (for testing of sortedness)
   const edges = [
     { from: 1, to: 2, weight: 4444 },
     { from: 1, to: 3, weight: 22 },
@@ -163,9 +163,6 @@ describe('edgesGroupedByWeight', function () {
     expect(result).toBeInstanceOf(Map);
     expect(result.size).toBe(3);
 
-    // @Characterization: currently unsorted
-    expect([...result.keys()]).toEqual([4444, 22, 333]);
-
     const inAnyOrder = jasmine.arrayWithExactContents;
     expect([...result.keys()]).toEqual(inAnyOrder([22, 333, 4444]));
 
@@ -183,6 +180,21 @@ describe('edgesGroupedByWeight', function () {
     expect(result.get(4444)).toEqual(inAnyOrder([
       { from: 1, to: 2, weight: 4444 },
     ]));
+  });
+
+  it('Sorts keys by weight - ascending', function () {
+    const result = edgesGroupedByWeight(hackedGraph);
+
+    expect([...result.keys()]).toEqual([22, 333, 4444]);
+  });
+
+  it('Sorts entries by weight (ascending), not insertion order', function () {
+    const result = edgesGroupedByWeight(hackedGraph);
+
+    const entries = [...result.entries()];
+    expect(entries[0][0]).toEqual(22);
+    expect(entries[1][0]).toEqual(333);
+    expect(entries[2][0]).toEqual(4444);
   });
 });
 

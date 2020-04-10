@@ -97,15 +97,9 @@
     }
 
     function findMaxWeight(hackedGraph) {
-      const groupedByWeight = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
+      const groupedByWeightAsc = AYESEEEM.desipartart.edgesGroupedByWeight(hackedGraph);
 
       // TODO: ICM 2020-03-08: Would a better way be to sort the edges directly?
-
-      // Make a new map, sorted/iterable by weight
-      // suggested by https://stackoverflow.com/a/31159284
-      const groupedByWeightAsc = new Map([...groupedByWeight.entries()].sort((a, b) => a[0] - b[0]));
-      console.log('groupedByWeightAsc');
-      console.log(groupedByWeightAsc);
 
       const uniqueWeights = [...groupedByWeightAsc.keys()];
       console.log('uniqueWeights');
