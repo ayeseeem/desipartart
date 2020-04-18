@@ -24,12 +24,17 @@ var AYESEEEM = (function (module) {
       nodeId++;
     });
 
+    // TODO: ICM 2020-04-18: Move into extracted Graph
+    function getNodeByName(name) {
+      return nodesByFile.get(name);
+    }
+
     const edges = [];
 
     // TODO: ICM 2020-02-04: verify finds from/to or to/from
     function edgeFor(fromFile, toFile) {
-      const fromNode = nodesByFile.get(fromFile);
-      const toNode = nodesByFile.get(toFile);
+      const fromNode = getNodeByName(fromFile);
+      const toNode = getNodeByName(toFile);
 //      const edge = edges.find(element => (element.from === fromNode.id) && (element.to === toNode.id));
       const edge = edges.find(function (element) {
         return ((element.from === fromNode.id) && (element.to === toNode.id)) || ((element.from === toNode.id) && (element.to === fromNode.id));
