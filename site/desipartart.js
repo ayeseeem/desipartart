@@ -20,8 +20,7 @@ var AYESEEEM = (function (module) {
     const nodesByFile = new Map();
     let nodeId = 1;
     files.forEach(f => {
-      const shortName = filenameOf(f);
-      nodesByFile.set(f, { id: nodeId, name: shortName });
+      nodesByFile.set(f, { id: nodeId, name: f });
       nodeId++;
     });
 

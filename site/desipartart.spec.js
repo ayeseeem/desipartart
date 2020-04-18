@@ -123,9 +123,9 @@ describe('processCommits', function () {
     diffs: [{ additions: 123, deletions: 123, file: 'path/file.txt' }]
   };
 
-  it('Sets name to filename with path stripped', function () {
+  it('Sets name to full path/filename, not just filename', function () {
     const result = processCommits([ commit_example ]);
-    expect(result.nodesByFile.get('path/file.txt').name).toBe('file.txt');
+    expect(result.nodesByFile.get('path/file.txt').name).toBe('path/file.txt');
   });
 
   it('Uses full path/filename as key, not just filename', function () {

@@ -63,7 +63,7 @@
       // TODO: ICM 2020-02-05: Can we use a map transformation?
       const rawNodes = [];
       hackedGraph.nodesByFile.forEach(function (value, key) {
-        rawNodes.push({ id: value.id, label: value.name });
+        rawNodes.push({ id: value.id, label: AYESEEEM.desipartart.filenameOf(value.name) });
       });
 
       console.log(rawNodes);

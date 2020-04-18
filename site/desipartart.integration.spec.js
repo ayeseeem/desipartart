@@ -464,7 +464,7 @@ describe('Integration Tests', function () {
 
       // last example
       expect(result.nodesByFile.get('src/test/java/org/ayeseeem/dpick/util/xml/XmlUnmarshallerTest.java'))
-        .toEqual({ id: 45, name: 'XmlUnmarshallerTest.java' });
+        .toEqual({ id: 45, name: 'src/test/java/org/ayeseeem/dpick/util/xml/XmlUnmarshallerTest.java' });
     });
 
     it('edges - details', function () {
