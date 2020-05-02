@@ -71,13 +71,16 @@ var AYESEEEM = (function (module) {
     console.log(edges);
     console.log('----------------------------------------------------------');
 
-    const hackedGraph = { nodesByFile, edges };
-    hackedGraph.getNonSelfEdges = function() {
-      const nonSelfEdges = this.edges
-          .filter(edge => edge.from !== edge.to);
-      return nonSelfEdges;
-    };
-    return hackedGraph;
+    function makeGraph(nodesByFile, edges) {
+      const graph = { nodesByFile, edges };
+      graph.getNonSelfEdges = function() {
+        const nonSelfEdges = this.edges.filter(edge => edge.from !== edge.to);
+        return nonSelfEdges;
+      };
+      return graph;
+    }
+
+    return makeGraph(nodesByFile, edges);
   }
 
   function processGitLog(arrayOfLogLines) {
