@@ -38,6 +38,10 @@ TODOs
   (implying `--reverse` was not used to create the log).
   - Or better yet, automatically detect/fix order
   - Does order matter if not using/following renames?
+- [ ] Exclude/Include commits on input based on prefix
+  (or [Conventional Commits](https://www.conventionalcommits.org/) prefix),
+  regex, SHA.
+  - [ ] Update live based on Exclude/Filter by.
 
 
 ### Visualisation Details ###
